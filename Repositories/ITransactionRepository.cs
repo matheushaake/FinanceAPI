@@ -8,5 +8,6 @@ namespace FinanceAPI.Repositories
         Task<Transaction?> GetByIdAsync(int id);
         Task<Transaction> CreateAsync(Transaction transaction);
         Task DeleteAsync(Transaction transaction);
+
     }
 }

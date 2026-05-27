@@ -22,5 +22,12 @@ namespace FinanceAPI.DTOs
             public DateTime Date { get; set; }
             public string CategoryName { get; set; } = string.Empty;
         }
+
+        public class SummaryDto
+        {
+            public decimal TotalIncome { get; set; }
+            public decimal TotalExpense { get; set; }
+            public decimal Balance { get; set; }
+        }
     }
 }

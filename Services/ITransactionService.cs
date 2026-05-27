@@ -8,5 +8,7 @@ namespace FinanceAPI.Services
         Task<IEnumerable<TransactionResponseDto>> GetAllAsync(int userId);
         Task<TransactionResponseDto> CreateAsync(int userId, CreateTransactionDto dto);
         Task DeleteAsync(int userId, int transactionId);
+        Task<SummaryDto> GetSummaryAsync(int userId);
+
     }
 }

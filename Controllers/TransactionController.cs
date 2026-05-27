@@ -56,5 +56,12 @@ namespace FinanceAPI.Controllers
                 return NotFound(new { message = ex.Message });
             }
         }
+
+        [HttpGet("summary")]
+        public async Task<IActionResult> GetSummary()
+        {
+            var summary = await _service.GetSummaryAsync(UserId);
+            return Ok(summary);
+        }
     }
 }

@@ -63,5 +63,25 @@ namespace FinanceAPI.Services
 
             await _repository.DeleteAsync(transaction);
         }
+
+        public async Task<SummaryDto> GetSummaryAsync(int userId)
+        {
+            var transactions = await _repository.GetAllByUserIdAsync(userId);
+
+            var totalIncome = transactions
+                .Where(t => t.Type == TransactionType.Income)
+                .Sum(t => t.Amount);
+
+            var totalExpense = transactions
+                .Where(t => t.Type == TransactionType.Expense)
+                .Sum(t => t.Amount);
+
+            return new SummaryDto
+            {
+                TotalIncome = totalIncome,
+                TotalExpense = totalExpense,
+                Balance = totalIncome - totalExpense
+            };
+        }
     }
 }
